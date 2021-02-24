@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!-- TOP -->
+    <Transition
+        motion:constraintSetStart="@id/topStart"
+        motion:constraintSetEnd="@+id/topEnd"
+        motion:motionInterpolator="easeInOut"
+        motion:duration="1000">
+
+        <OnClick
+            motion:targetId="@id/squareTop"
+            motion:clickAction="toggle" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/topStart">
+        <Constraint
+            android:id="@+id/squareTop"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent">
+            <Layout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                />
+            <Transform
+                android:rotation="-90"
+                />
+            <Motion
+                motion:drawPath="rectangles"
+                />
+            <PropertySet
+                android:alpha="1.0"
+                />
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#268ED3"
+                />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/topEnd">
+        <Constraint
+            android:id="@+id/squareTop"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent">
+            <Layout
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                />
+            <Transform
+                android:rotation="90"
+                />
+            <Motion
+                motion:drawPath="rectangles"
+                />
+            <PropertySet
+                android:alpha="0.2"
+                />
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#EEFFDD00"
+                />
+        </Constraint>
+    </ConstraintSet>
+
+
+
+</MotionScene>
